@@ -1,30 +1,31 @@
 var http = require("http");
 
-
-
 module.exports={
 
-getAllEmergencyRoutes:function(){
-url = "http://gisdmd.cabq.gov/dmdview/rest/services/public/SurveyMonuments/MapServer/0/query?where=1=1&outFields=*&outSR=4326&f=json";
+getAllEmergencyRoutes:function(callback){
+
+  var buffer = "",
+      data,
+      url = "http://gisdmd.cabq.gov/dmdview/rest/services/public/SurveyMonuments/MapServer/0/query?where=1=1&outFields=*&outSR=4326&f=json",
+      route;
 
 // Code snippet from http://stackoverflow.com/questions/16148403/using-node-js-to-connect-to-a-rest-api Robert Mitchell
-var request = http.get(url, function (response) {
-
-    var buffer = "",
-        data,
-        route;
+return http.get(url,function (response) {
 
     response.on("data", function (chunk) {
         buffer += chunk;
     });
 
-    response.on("end", function (err) {
+    response.on("end", function () {
 
         data = JSON.parse(buffer);
-       
-        f=data.features;
-        return f;
+        callback(data.features
+      )
     });
 });
+
+
+
 },
+
 }
