@@ -3,7 +3,7 @@ This module grabs all the emergency routes in Albuquerque.
 
 ### Usage
 ```node
-var r = require('./routes.js');
+var r = require('abqemergencyroutes');
 
 function fn(d){
 
