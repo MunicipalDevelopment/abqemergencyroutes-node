@@ -21,7 +21,7 @@ var request = http.get(url, function (response) {
     response.on("end", function (err) {
 
         data = JSON.parse(buffer);
-        console.log(data.features[0]);
+       
         f=data.features;
         return f;
     });
