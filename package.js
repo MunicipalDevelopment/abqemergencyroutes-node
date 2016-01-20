@@ -1,6 +1,6 @@
 {
   "name": "abqemergencyroutes",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Returns all the emergency routes in ABQ as JSON",
   "main": "routes.js",
   "scripts": {
